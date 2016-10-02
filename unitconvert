@@ -21,14 +21,22 @@ def convert(args):
     value_in_base_units = input_unit.convert_to_base(args.to_convert[0])
     value_in_output_units = output_unit.convert_from_base(value_in_base_units)
 
-    print value_in_output_units
+    if args.precision > 0:
+        formatstring = "%." + str(args.precision) + "f"
+        print formatstring % value_in_output_units
+    elif args.precision == 0:
+        formatstring = "%d"
+        print formatstring % value_in_output_units
+    else:
+        print value_in_output_units
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="This program converts temperatures between Fahrenheit, Celsius, Kelvin, and Bug chirps.")
+    parser = argparse.ArgumentParser(description="Basic unit conversion tool.")
     parser.add_argument("to_convert", metavar="N", type=float, nargs=1, help="The value to convert")
     parser.add_argument("-i", "--input", help="The units of N", required=True)
     parser.add_argument("-o", "--output", help="The units of the result", required=True)
+    parser.add_argument("-p", "--precision", type=int, help="The number of decimal places to display")
 
     args = parser.parse_args()
     convert(args)

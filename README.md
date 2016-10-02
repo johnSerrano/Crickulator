@@ -9,10 +9,16 @@ It is designed to be simple and easy to use in scripts.
 
 For example:
 
-    $ unitconvert -i fahrenheit -o celsius
-    37.7777777778
+    $ unitconvert -i fahrenheit -o celsius 45
+    7.22222222222
 
-Note: the precision currently uses python's default for printing floats, but that should be controlled by an argument eventually.
+You can use the `-p` flag to set precision:
+
+    $ unitconvert -i fahrenheit -o celsius -p 2 45
+    7.22
+
+    $ unitconvert -i fahrenheit -o celsius -p 0 45
+    7
 
 ## Requirements:
 Python 2
