@@ -32,11 +32,3 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     convert(args)
-
-#nope, didn't make up the cricket thing:  http://www.scientificamerican.com/article/bring-science-home-cricket-temperature/
-#write tests first
-#needs to handle negatives --I think they are being handled?
-#include over 100 F "too hot for crickets" and under 55 F "too cold for crickets", also a funny message for below freezing "cricketsicles don't chirp"?
-#include funny message for lower than abs zero
-#include funny message about "at -40 it's so cold that no one cares if it's F or C"
-#feel free to add Rankine as a unit if you're feeling feisty
